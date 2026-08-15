@@ -1,0 +1,5 @@
+.env
+.memories/
+tasks.md
+*.log
+.claude/
