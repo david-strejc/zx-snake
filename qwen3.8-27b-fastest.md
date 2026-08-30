@@ -24,8 +24,10 @@ One week old; no community finetune beats base yet. Speed wins come from quant +
 
 - `redashes/Qwen3.8-27B-BF16-SSMFIX` — "ssm_conv1d structural defect" claim from HF discussion #76
   is disputed as a hoax with fabricated metrics; no Qwen response.
-- "Uncensored/ULTIMATE" finetunes (AEON, orcarouter…) — junk tier. huihui-ai abliterated is the
-  only standard one if uncensor needed.
+- "Uncensored/ULTIMATE" finetunes (AEON, orcarouter…) — junk tier, with one exception:
+  `JonathanColetti/Qwen3.8-27B-Uncensored-GGUF` (Heretic refusal-direction removal, MTP and vision
+  retained, benchmarked at −0.5 mean points, refusals 98/100 → 12/100). Deployed and verified —
+  see `runpod/README.md`.
 
 ## Reference throughput
 
