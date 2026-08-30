@@ -153,3 +153,38 @@ template handles opencode's schema correctly — write and bash tools both fired
 The `baseURL` points at the RunPod HTTP proxy. **Stop or terminate the pod and opencode on this
 server stops working** — the proxy hostname is derived from the pod id, so a re-created pod needs
 `options.baseURL` updated in `opencode.json`. `podStop` + start again keeps the same id and URL.
+
+### Full auto (no permission prompts)
+
+Two ways. Config is the persistent one and applies to the TUI as well:
+
+```json
+"permission": "allow"
+```
+
+`opencode debug config` resolves that to `{"*": "allow"}` — the wildcard covers every tool,
+including ones added by future versions. Verified on 2026-08-30: `opencode run` executed
+`date -u > /tmp/fullauto_proof.txt` and read the file back, both outside the project directory,
+with no approval step.
+
+Per-invocation instead of permanently, `run` takes a flag:
+
+```bash
+opencode run --auto "…"     # auto-approve everything not explicitly denied
+```
+
+To keep full auto but fence off the sharp edges, use the object form — anything unlisted still
+falls through to the `"*"` default:
+
+```json
+"permission": {
+  "*": "allow",
+  "bash": { "rm *": "ask", "git push *": "ask", "*": "allow" },
+  "external_directory": "ask"
+}
+```
+
+Tool keys the schema knows: `read`, `edit`, `glob`, `grep`, `list`, `bash`, `task`,
+`external_directory`, `todowrite`, `question`, `webfetch`, `websearch`, `lsp`, `doom_loop`,
+`skill`. Values are `ask` / `allow` / `deny`; `bash`, `edit` and a few others also take a
+map of glob pattern to action.
