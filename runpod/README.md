@@ -1,5 +1,10 @@
 # Qwen3.8-27B-Uncensored on RunPod (RTX PRO 6000 Blackwell)
 
+> **Pod terminated 2026-08-30.** `5tt789a6p5t6bs` was destroyed with its disk via the
+> GraphQL `podTerminate` mutation — no pod, no network volume, nothing billing. The proxy
+> URL now 404s and the opencode config on `23.davidstrejc.cz` points at a dead endpoint.
+> Everything below is the working recipe; redeploy reproduces it from scratch.
+
 Verified live 2026-08-30. OpenAI-compatible endpoint, vision + 262K context,
 speculative decoding via DFlash2.
 
