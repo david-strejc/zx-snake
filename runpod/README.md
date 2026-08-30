@@ -188,3 +188,65 @@ Tool keys the schema knows: `read`, `edit`, `glob`, `grep`, `list`, `bash`, `tas
 `external_directory`, `todowrite`, `question`, `webfetch`, `websearch`, `lsp`, `doom_loop`,
 `skill`. Values are `ask` / `allow` / `deny`; `bash`, `edit` and a few others also take a
 map of glob pattern to action.
+
+### Browser tools: agent-browser over MCP
+
+Installed on 23.davidstrejc.cz 2026-08-30, exposed to the model as MCP tools.
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash    # Debian 13 ships node 20; agent-browser needs >=24
+apt-get install -y nodejs
+npm i -g --allow-scripts=agent-browser agent-browser       # npm 11 blocks the postinstall without this
+agent-browser install --with-deps                          # Chrome 152 + the GTK/GBM libs a headless box lacks
+```
+
+Two install traps, both silent: with node 20 npm only warns `EBADENGINE` and installs anyway, and
+npm 11 skips the postinstall that fetches the binary unless `--allow-scripts` is passed. Neither
+fails loudly — you get a broken install that looks fine.
+
+Wired into `opencode.json` as a stdio MCP server:
+
+```json
+"mcp": {
+  "agent-browser": {
+    "type": "local",
+    "command": ["agent-browser", "mcp"],
+    "enabled": true,
+    "timeout": 120000,
+    "environment": {
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "AGENT_BROWSER_IDLE_TIMEOUT_MS": "600000"
+    }
+  }
+}
+```
+
+The explicit `PATH` matters — opencode spawns the server with a minimal environment, and the
+default idle timeout would otherwise hold Chrome for an hour after the last call.
+
+### Verified — Qwen driving the browser itself
+
+Read-only pass, model chose the tools unprompted:
+
+```
+⚙ agent-browser_agent_browser_open     {"url":"https://example.com"}
+⚙ agent-browser_agent_browser_snapshot {"interactive":false,"includeUrls":true}
+→ H1 "Example Domain", link "Learn more" (https://iana.org/domains/example)
+```
+
+Full interaction chain, including a click through a redirect:
+
+```
+⚙ open → snapshot → click {"selector":"e2"} → get_url → get_title → screenshot
+→ URL   https://www.iana.org/help/example-domains
+→ Title Example Domains
+→ /root/octest/shot.png, 1280x577, 1928 distinct colours
+```
+
+The screenshot is a genuine render — IANA logo, web fonts, full layout — on a host with no X
+server and `DISPLAY` unset. The model used accessibility-tree refs (`e2`) from the snapshot to
+target the link rather than guessing a CSS selector, which is the interaction pattern that
+normally fails on smaller local models.
+
+`agent-browser skills get core --full` on the host prints the version-matched usage guide;
+specialised skills cover Electron, Slack, exploratory QA, and cloud browser providers.
