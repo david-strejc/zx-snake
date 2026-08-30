@@ -94,3 +94,62 @@ curl -s -X POST "https://api.runpod.io/graphql?api_key=$RUNPOD_API_KEY" \
   -d '{"query":"mutation { podStop(input:{podId:\"<POD_ID>\"}) { id desiredStatus } }"}'
 ```
 `podStop` keeps the volume (rebuild survives). `podTerminate` throws it away.
+
+---
+
+## Client: opencode on 23.davidstrejc.cz
+
+Installed and verified 2026-08-30. Debian 13 (trixie), opencode **1.18.25**, standalone binary
+(no node/bun needed on the host).
+
+```bash
+curl -fsSL https://opencode.ai/install | bash        # -> /root/.opencode/bin/opencode
+ln -sf /root/.opencode/bin/opencode /usr/local/bin/opencode
+```
+
+The installer only appends to `~/.bashrc`, so `opencode` is missing from login and
+non-interactive shells (cron, systemd, `ssh host cmd`). The `/usr/local/bin` symlink is what
+makes it resolve everywhere — verified with `env -i /bin/sh -c "which opencode"`.
+
+`/root/.config/opencode/opencode.json` (chmod 600 — it holds the API key):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "runpod-qwen": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Qwen3.8-27B Uncensored (RunPod RTX PRO 6000)",
+      "options": { "baseURL": "https://<POD_ID>-8080.proxy.runpod.net/v1", "apiKey": "<KEY>" },
+      "models": {
+        "qwen3.8-27b-uncensored": {
+          "name": "Qwen3.8-27B-Uncensored Q8_0",
+          "tool_call": true, "reasoning": true,
+          "limit": { "context": 262144, "output": 32768 }
+        }
+      }
+    }
+  },
+  "model": "runpod-qwen/qwen3.8-27b-uncensored",
+  "autoupdate": false
+}
+```
+
+### Verified on the host
+
+| test | result |
+|---|---|
+| `opencode models \| grep runpod` | `runpod-qwen/qwen3.8-27b-uncensored` |
+| plain round-trip (`opencode run`) | returns exact requested string |
+| **tool calling** — write `fib.py`, then run it via bash tool | wrote the file, ran `python3 -c`, returned `6765` ✅ |
+| refusal behaviour through opencode | answers, no disclaimer ✅ |
+| `env -i /bin/sh -c "which opencode"` | `/usr/local/bin/opencode` |
+
+Tool calling is the part that usually breaks against a local model; llama.cpp's `--jinja` Qwen3
+template handles opencode's schema correctly — write and bash tools both fired in one turn.
+
+### Coupling
+
+The `baseURL` points at the RunPod HTTP proxy. **Stop or terminate the pod and opencode on this
+server stops working** — the proxy hostname is derived from the pod id, so a re-created pod needs
+`options.baseURL` updated in `opencode.json`. `podStop` + start again keeps the same id and URL.
