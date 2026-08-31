@@ -1,9 +1,8 @@
 # Qwen3.8-27B-Uncensored on RunPod (RTX PRO 6000 Blackwell)
 
-> **Redeployed 2026-08-31** as pod `rx4bvwvhuj1huh` from this recipe — build + 30 GB weight
-> download ran concurrently and the whole stack (endpoint, opencode on 23.davidstrejc.cz,
-> agent-browser) was live in one pass. 95.8 gen tok/s, 41.7 GB VRAM. (Prior pod `5tt789a6p5t6bs`
-> was terminated with its disk on 2026-08-30.)
+> **Torn down 2026-08-31.** Pod `rx4bvwvhuj1huh` destroyed with its disk (`podTerminate`) after
+> tests finished — no pod, no volume, endpoint 404s. This recipe was proven twice (deploy
+> 2026-08-30, redeploy 2026-08-31, both live in one pass at 95.8 gen tok/s); redeploy reproduces it.
 
 Verified live 2026-08-30, redeployed and re-verified 2026-08-31. OpenAI-compatible endpoint, vision + 262K context,
 speculative decoding via DFlash2.
