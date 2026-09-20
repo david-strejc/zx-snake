@@ -24,8 +24,18 @@ def rd(p):
     w = wave.open(p); a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float)
     return a - a.mean()
 o, v = rd('/tmp/qa_out.wav'), rd('/tmp/qa_vo.wav'); n = min(len(o), len(v)); o, v = o[:n], v[:n]
-ncc = float(np.dot(o, v) / (np.linalg.norm(o) * np.linalg.norm(v) + 1e-9))
-print(f"  waveform NCC at 0 lag: {ncc:.3f}  (>0.9 = VO copied 1:1)")
+best = (-1.0, 0)
+for l in range(-4800, 4801, 40):
+    a = o[max(0, l):n + min(0, l)]; b = v[max(0, -l):n - max(0, l)]
+    c = float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-9))
+    if c > best[0]: best = (c, l)
+print(f"  waveform NCC best {best[0]:.3f} at lag {best[1] / 16:+.0f} ms   (>0.9 = VO copied 1:1)")
+k = 8000  # 0.5 s bins: a dropped line shows as VO energy with no OUT energy
+eo = np.array([np.sqrt((o[i:i + k] ** 2).mean()) for i in range(0, n - k, k)])
+ev = np.array([np.sqrt((v[i:i + k] ** 2).mean()) for i in range(0, n - k, k)])
+print(f"  envelope corr (0.5 s bins): {np.corrcoef(eo, ev)[0, 1]:.3f}")
+dropped = [f"{i * 0.5:.1f}s" for i in range(len(ev)) if ev[i] > 800 and eo[i] < 0.25 * ev[i]]
+print("  DROPPED narration at: " + (", ".join(dropped) if dropped else "none"))
 EOF
 
 echo "== frame strip =="

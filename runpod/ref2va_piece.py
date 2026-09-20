@@ -68,8 +68,11 @@ def graph(seg: dict, cfg: dict) -> dict:
     if cfg.get("turbo"):
         n["5"] = N("LoraLoaderModelOnly", model=model, lora_name=TURBO, strength_model=1.0)
         model = ["5", 0]
-    n["6"] = N("MiniMaxH3SigmaShift", model=model, shift_video=12.0, shift_audio=3.0)
-    model = ["6", 0]
+    # Off by default: the audio-reuse test that copied the VO at NCC 0.949 ran on the model's own
+    # sigma defaults, and the first segment rendered with this node dropped a narration line.
+    if cfg.get("sigma_shift"):
+        n["6"] = N("MiniMaxH3SigmaShift", model=model, shift_video=12.0, shift_audio=3.0)
+        model = ["6", 0]
 
     ref = dict(clip=["4", 0], vae=["1", 0], audio_vae=["2", 0], prompt=seg["prompt"],
                width=768, height=1344, length=seg["frames"],
