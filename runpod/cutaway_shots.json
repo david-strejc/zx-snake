@@ -1,0 +1,65 @@
+[
+  {
+    "id": "t1_book",
+    "first": "t1_book.png",
+    "seconds": 8.0,
+    "seed": 501,
+    "prompt": "The pen keeps writing, working left to right along the line and dropping to the next; the other hand flattens the page and slides the book a few centimetres straighter. He pauses, taps the pen twice on the paper, then writes again. The view shakes slightly with small amplitude at slow speed close over the bench. overall_soundscape: a ballpoint pen scratching on paper, a pen tapping the page, a compressor humming behind, a distant impact wrench. non_diegetic_music: N/A"
+  },
+  {
+    "id": "t2_search",
+    "first": "t2_search.png",
+    "seconds": 8.0,
+    "seed": 502,
+    "prompt": "Still crouched with the phone trapped against his shoulder, he pulls the cardboard box further out, looks inside, shakes his head and pushes it back onto the shelf. He shifts to the next shelf down, runs a finger along the box edges and frowns harder. The view shakes slightly with small amplitude at normal speed and trucks a short distance along the aisle with him. overall_soundscape: cardboard dragging on metal shelving, a muffled voice on a phone speaker, boots shifting on a concrete floor, warehouse lighting hum. non_diegetic_music: N/A"
+  },
+  {
+    "id": "t3_tablet",
+    "first": "t3_tablet.png",
+    "seconds": 8.0,
+    "seed": 503,
+    "prompt": "The thumb taps the tablet screen twice and the coloured rows on it shift; the hand tilts the tablet slightly so the light across it changes, then lowers it a few centimetres toward the engine bay. The other hand comes into frame and steadies the edge. The view shakes slightly with small amplitude at slow speed and pushes in a little toward the screen. overall_soundscape: a fingertip tapping a hard tablet screen, a short confirmation beep, an engine bay ticking as it cools, workshop radio far off. non_diegetic_music: N/A"
+  },
+  {
+    "id": "o1_night",
+    "first": "o1_night.png",
+    "seconds": 8.0,
+    "seed": 504,
+    "prompt": "He stops rubbing his neck, drops the hand to the desk, pushes one paper report aside and pulls another closer, running a finger down a column. He exhales slowly, sits back, and looks off past the monitor. The desk lamp light stays steady on the papers. The view shakes slightly with small amplitude at slow speed. overall_soundscape: paper sliding on a desk, a long tired breath out, an office chair creaking, a clock ticking, quiet night room tone. non_diegetic_music: N/A"
+  },
+  {
+    "id": "o2_dash",
+    "first": "o2_dash.png",
+    "seconds": 8.0,
+    "seed": 505,
+    "prompt": "The thumb scrolls the phone screen and the coloured tiles slide upward, then stops; the hand tilts the phone slightly and the daylight reflection sweeps across the glass. The thumb taps once and the tiles change. The view shakes slightly with small amplitude at slow speed inside the car. overall_soundscape: a thumb brushing glass, a quiet car interior, muffled traffic through the windscreen, a seat creaking. non_diegetic_music: N/A"
+  },
+  {
+    "id": "o3_door",
+    "first": "o3_door.png",
+    "seconds": 8.0,
+    "seed": 506,
+    "prompt": "He stands in the doorway with his hands on his hips, turns his head slowly to follow something across the shop floor, then nods once to himself and shifts his weight onto the other foot. Behind him the technician moves around the car and a shadow crosses the floor. The view shakes slightly with small amplitude at slow speed behind his shoulder. overall_soundscape: workshop ambience, a socket wrench clicking, a compressor cycling on, footsteps on concrete, faint radio. non_diegetic_music: N/A"
+  },
+  {
+    "id": "k1_retype",
+    "first": "k1_retype.png",
+    "seconds": 8.0,
+    "seed": 507,
+    "prompt": "The right hand types in short bursts while the left holds the paper invoice upright, tilting it toward the light to read; the eyes are not in frame. The left hand sets that sheet down on a second pile, takes the next one off the tall stack and lifts it into the same position. The typing starts again. The view shakes slightly with small amplitude at slow speed close over the desk. overall_soundscape: keyboard keys clattering in bursts, paper being lifted and set down, a printer running, quiet office room tone. non_diegetic_music: N/A"
+  },
+  {
+    "id": "k2_screen",
+    "first": "k2_screen.png",
+    "seconds": 8.0,
+    "seed": 508,
+    "prompt": "The hand on the mouse moves slightly, the cursor crosses the screen to the button, and clicks once; the form on the screen changes and a short confirmation appears. The hand lifts off the mouse and settles back. The screen reflection shifts a little. The view shakes slightly with small amplitude at slow speed. overall_soundscape: a single mouse click, a soft interface confirmation tone, a keyboard somewhere off to the side, a printer idling, quiet office room tone. non_diegetic_music: N/A"
+  },
+  {
+    "id": "k3_clear",
+    "first": "k3_clear.png",
+    "seconds": 8.0,
+    "seed": 509,
+    "prompt": "She pushes the folder fully onto the shelf, lets her hand drop, and turns back toward the clear desk; she rests one hand on the back of the chair and looks across the empty surface, then tucks a loose strand of hair behind her ear. The view shakes slightly with small amplitude at slow speed and trucks a short distance with her. overall_soundscape: a folder sliding onto a shelf, footsteps on office carpet, a chair rolling slightly, a printer idling, quiet office room tone. non_diegetic_music: N/A"
+  }
+]

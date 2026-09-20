@@ -1,0 +1,84 @@
+{
+  "cuts": [
+    {
+      "clip": "b1_owner_selfie",
+      "in": 0.2,
+      "len": 4.57
+    },
+    {
+      "clip": "o1_night",
+      "in": 0.2,
+      "len": 2.0
+    },
+    {
+      "clip": "b1_owner_selfie",
+      "in": 2.4,
+      "len": 2.0
+    },
+    {
+      "clip": "o1_night",
+      "in": 2.4,
+      "len": 3.44
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 0.2,
+      "len": 3.7
+    },
+    {
+      "clip": "o2_dash",
+      "in": 0.2,
+      "len": 2.65
+    },
+    {
+      "clip": "o3_door",
+      "in": 0.2,
+      "len": 2.65
+    },
+    {
+      "clip": "o3_door",
+      "in": 2.4,
+      "len": 2.55
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 2.4,
+      "len": 2.55
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 0.2,
+      "len": 6.75
+    }
+  ],
+  "narration": [
+    {
+      "file": "line01.mp3",
+      "at": 0.6
+    },
+    {
+      "file": "line02.mp3",
+      "at": 4.26
+    },
+    {
+      "file": "line03.mp3",
+      "at": 7.46
+    },
+    {
+      "file": "line04.mp3",
+      "at": 10.21
+    },
+    {
+      "file": "line05.mp3",
+      "at": 13.17
+    },
+    {
+      "file": "line06.mp3",
+      "at": 17.41
+    },
+    {
+      "file": "line07.mp3",
+      "at": 21.49
+    }
+  ]
+}

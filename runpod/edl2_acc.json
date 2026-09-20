@@ -1,0 +1,79 @@
+{
+  "cuts": [
+    {
+      "clip": "c1_acc_selfie",
+      "in": 0.2,
+      "len": 3.54
+    },
+    {
+      "clip": "k1_retype",
+      "in": 0.2,
+      "len": 2.79
+    },
+    {
+      "clip": "k1_retype",
+      "in": 2.4,
+      "len": 2.79
+    },
+    {
+      "clip": "k1_retype",
+      "in": 4.2,
+      "len": 2.64
+    },
+    {
+      "clip": "c1_acc_selfie",
+      "in": 2.4,
+      "len": 2.64
+    },
+    {
+      "clip": "c2_acc_after",
+      "in": 0.2,
+      "len": 4.38
+    },
+    {
+      "clip": "k2_screen",
+      "in": 0.2,
+      "len": 4.29
+    },
+    {
+      "clip": "k3_clear",
+      "in": 0.2,
+      "len": 3.76
+    },
+    {
+      "clip": "c2_acc_after",
+      "in": 0.2,
+      "len": 6.13
+    }
+  ],
+  "narration": [
+    {
+      "file": "line01.mp3",
+      "at": 0.6
+    },
+    {
+      "file": "line02.mp3",
+      "at": 3.43
+    },
+    {
+      "file": "line03.mp3",
+      "at": 7.9
+    },
+    {
+      "file": "line04.mp3",
+      "at": 12.12
+    },
+    {
+      "file": "line05.mp3",
+      "at": 15.62
+    },
+    {
+      "file": "line06.mp3",
+      "at": 19.05
+    },
+    {
+      "file": "line07.mp3",
+      "at": 22.06
+    }
+  ]
+}
