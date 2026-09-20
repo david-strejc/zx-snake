@@ -85,8 +85,15 @@ are both optional → first-frame-only is a clean FL2VA run.
 
 ## Measured
 
-- 8-step turbo, 1344×768, 124 frames: **97 s** wall (model init ~10 s + ~9 s/step).
-- VRAM resident: **64 GB / 96 GB**.
+| shot | res | frames | wall | VRAM peak |
+|---|---|---|---|---|
+| 5.2 s landscape | 1344×768 | 124 | 97 s | 64 GB |
+| 6.6 s vertical | 768×1344 | 158 | ~2 min | 64 GB |
+| **15.1 s vertical** | 768×1344 | **362** | **8.5 min** | **77 GB** |
+
+Portrait 9:16 needs no retune (both dims /16). 15 s in **one shot** fits 96 GB with headroom —
+no clip chaining needed, and identity/lighting hold across the whole take. Multi-beat prompts
+land: "lowers hand → lifts cup → sips → tucks hair" played out in order over the 15 s.
 - Output: H.264 1344×768, 5.17 s, AAC stereo 32 kHz — audio generated jointly (H3 AV latent).
 
 ## Teardown
