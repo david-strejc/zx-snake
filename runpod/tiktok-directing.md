@@ -231,3 +231,34 @@ cannot get its own copy; they simply time-share. **Real 2× requires a second po
    BlockSparseAttention.
 6. **No A/B test of cut rate against retention exists, by anyone, at any scale.** The fast-cutting
    doctrine is heuristic. Treat the numbers above as a starting cadence, not a law.
+
+## Correction, same day — read this before the sections above
+
+Two things above were wrong and cost a morning:
+
+1. **"Audio reuse / lipsync is H3 Max API only" is false.** `MiniMaxH3ReferenceToVideo` takes
+   `ref_audios` + `audio_vae`; a Czech VO fed as `<Audio 1>` with `retention_analysis: <Audio 1>:
+   fully_copy` came back at waveform NCC 0.949. `<d>`, `</d>`, `<|cutoff|>` are registered
+   special tokens in `comfy/text_encoders/minimax.py`. The whole stitched-FL2VA pipeline
+   (`shotfactory.py` + `assemble.py`) was therefore the wrong mode for a narrated piece.
+2. **The 1.67 s / 18-shot cadence is what ads *do*, not what *works*.** MacLachlan & Logan 1993
+   (n=641): persuasion and recall peak at **9–12 shots per 30 s** and fall off hard above 13; the
+   18–34 band did *worst* on 20+ shot ads. A spoken claim trades in persuasion, so the slower end
+   wins. JAMS 2026 (eye-tracking, n=2,520 viewings) finds shorter scenes raise attention — cuts buy
+   attention and cost message processing; the two resolve, they don't cancel.
+
+**The rules that now gate a cut** (from `.memories/researcher_testimonial_edit_grammar.md`,
+provenance marked there):
+- Count **ideas**, not sentences. Split a line that carries two ideas; join lines that carry one.
+- A cut must bring **new information** (subject, space, state, viewpoint, time); a distance change
+  is camera motion, not a cut — the official H3 guide and the editing literature agree verbatim.
+- **Cut on the face, not on the world.** Extra angles of the same person in the same place are
+  free (Lang 2000); a between-scene cut is ~3× more visible (Smith & Henderson 2008).
+- Hook: **one shot, ≥3 s, face established.** Turn at ~7–8 s with the subject back on camera.
+- **No picture cut within ±0.28 s of a sentence's first frame.** J-cut (picture first) or L-cut
+  (voice first), never the same frame; cut on the breath or the stressed verb.
+- Last shot **≥3.5 s, on the face, no cut in the final 3 s** — the strongest-evidenced item.
+- 8–11 shots / 30 s, mean 3.0–3.5 s, ≥40% face time, one world per sequence, no borrowed footage.
+- **Same-clip re-entry at a different in-point is a jump cut**, and a punch-in from 768 px cannot
+  rescale it enough to hide (needs 2.1–2.8×). Generate another angle instead.
+- Judge on a phone-size re-encode, never the master.

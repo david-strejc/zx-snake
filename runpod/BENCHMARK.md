@@ -129,3 +129,38 @@ both of which are cheap and fast. One card is enough for roughly a piece per hou
 **Not validated:** everything here was judged on the master. Delivered TikTok 1080p runs
 0.85–1.7 Mbps HEVC, where the noise floor and fine texture will not survive intact. The honest next
 step is to push one of these through an actual upload and re-measure at phone size.
+
+## Correction, same day: the pipeline above was the wrong mode
+
+The stitched-FL2VA pipeline measured above produced pieces the client called *chaotic, not in
+coordination with the narration*, and on inspection they were: the same seven cutaways recut into
+three spots, workshop footage inside an office story, and the payoff line landing on the shot of a
+man with his head in his hands — because cut lengths were solved from a cadence curve and narration
+was placed from a fixed array that never referenced each other.
+
+Two studies and a source read of `comfy_extras/nodes_minimax_h3.py` established the model's
+intended mode for a narrated spot, and it runs locally:
+
+| | stitched FL2VA (above) | **Ref2VA + audio reuse (correct)** |
+|---|---|---|
+| identity | keyframe per clip, drifts | `<Subject 1>` backed by `<Picture 1..3>`, held every step |
+| narration | laid on in post | `<Audio 1>: fully_copy` — returned 1:1, waveform NCC **0.949** |
+| cuts | in the NLE, between generations | `[Shot N] At 00:0S.SSS` inside one generation, at the narration marks |
+| world | one per clip | one per generation, `<Picture 4>` = previous tail for colour |
+| retime | 1.25× to hide distillation drag | **none** — it would pitch-shift the voice |
+| segment | 8 s, 192 frames | 10.125 s, 243 frames (AV clocks align at 39/90/141/192/243) |
+| VRAM | 64 GB | **96,985 / 97,887 MiB** at 294 frames — 243 is the ceiling; `ref_image_size: max` at 25 steps killed the server |
+| wall | 178 s | ~13 min at `match`, 25 steps, `beta`; 66 s/step at `max` |
+
+Measured on the first Ref2VA test: scripted cuts at 3.500 / 7.600 landed at **3.21 / 7.25** — the
+model leads the audio by a consistent ~0.3 s, so cut timestamps are written 0.2 s before their
+line to land as clear J-cuts outside the ±0.28 s no-cut band around a sentence start.
+
+The editing study's rules now gating every cut: shot count from **ideas, not sentences** (the
+seven-line script is six ideas — lines 2+3 are one hunt, lines 4+5 are one turn); hook one shot
+≥3 s with the face established; cut only where a shot brings new information, otherwise camera
+motion; **cut often on the face, rarely on the world** (Lang 2000: angle changes within a scene
+raise memory at no cognitive cost, a scene change is ~3× more visible); last shot ≥3.5 s on the
+face with no cut in the final 3 s; 8–11 shots per 30 s, mean 3.0–3.5 s. Pieces built to this are
+in `piece_tech.json` and rendered by `ref2va_piece.py`; each segment passes `qa_segment.sh`
+(actual cut times, VO correlation, frame strip at every cut) before assembly.
