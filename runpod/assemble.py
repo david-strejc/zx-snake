@@ -15,6 +15,7 @@ Usage:  python3 assemble.py edl.json out.mp4
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -41,6 +42,10 @@ DESLOP = (
     "vignette=PI/5,"
     "format=yuv420p"
 )
+
+
+if os.environ.get("PLAIN"):  # A/B: retime only, so the finish's own contribution is visible
+    DESLOP = "scale=1080:1920,format=yuv420p"
 
 
 def run(args: list[str]) -> None:
@@ -77,7 +82,7 @@ def concat_video(parts: list[Path], target: Path) -> Path:
     return target
 
 
-def bed(parts: list[Path], target: Path) -> Path:
+def bed(parts: list[Path], target: Path, length: float) -> Path:
     """Crossfade the per-cut room tone so the audio seams sit off the picture seams."""
     inputs, filters, label = [], [], "[0:a]"
     for n, path in enumerate(parts):
@@ -86,8 +91,11 @@ def bed(parts: list[Path], target: Path) -> Path:
         nxt = f"[x{n}]"
         filters.append(f"{label}[{n}:a]acrossfade=d={AUDIO_FADE}:c1=tri:c2=tri{nxt}")
         label = nxt
+    # Each crossfade eats AUDIO_FADE from the running length, so the bed ends short of the
+    # picture; pad it back or the last seconds play with no room tone at all.
+    filters.append(f"{label}apad=whole_dur={length}[bed]")
     run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", ";".join(filters),
-         "-map", label, "-ac", "2", str(target)])
+         "-map", "[bed]", "-ac", "2", str(target)])
     return target
 
 
@@ -138,7 +146,7 @@ def main() -> int:
 
     picture = concat_video(videos, WORK / "picture.mp4")
     length = seconds(picture)
-    room = bed(audios, WORK / "bed.wav")
+    room = bed(audios, WORK / "bed.wav", length)
     lines = place(edl["narration"], boundaries)
     moved = sum(1 for a, b in zip(lines, edl["narration"]) if abs(a["at"] - b["at"]) > 0.01)
     print(f"narration: {moved}/{len(lines)} lines nudged clear of a picture cut; "

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "st_flash",
+    "first": "st_flash.png",
+    "seconds": 5.2,
+    "seed": 201,
+    "prompt": "Her laugh breaks and she covers her mouth with one hand, shoulders jerking twice, then she looks away down the street still grinning and her breath fogs in the cold. The flash keeps her face blown out while the street behind stays black. The view shakes strongly with small amplitude at normal speed, the way a phone held in one cold hand moves. overall_soundscape: a woman laughing and catching her breath, traffic passing on a wet road, a door opening with a shop bell, distant voices. non_diegetic_music: N/A"
+  },
+  {
+    "id": "st_selfie",
+    "first": "st_selfie.png",
+    "seconds": 5.2,
+    "seed": 202,
+    "prompt": "He keeps talking, eyebrows lifting on a stressed word, then stops, presses his lips together and shakes his head once. He shifts the holding arm so the framing drops and corrects, blinks twice, and leans a little closer to the lens. The view shakes slightly with small amplitude at normal speed with the drift of an outstretched arm. overall_soundscape: a man speaking close to the microphone in a small room, slight room echo, a radiator ticking, a phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "st_static",
+    "first": "st_static.png",
+    "seconds": 5.2,
+    "seed": 203,
+    "prompt": "She finishes folding the paper around the loaf, sets it aside, wipes her hands on the apron and reaches for the next one; her head stays down the whole time. Behind her a tray is pushed onto a rack. Nothing in the frame moves except her. Static Shot, the framing completely fixed. overall_soundscape: paper crinkling around bread, a metal tray sliding onto a rack, a fridge compressor humming, faint street noise through a window. non_diegetic_music: N/A"
+  },
+  {
+    "id": "st_glossy",
+    "first": "st_glossy.png",
+    "seconds": 5.2,
+    "seed": 204,
+    "prompt": "Her hair lifts in the wind and she turns her head slowly toward the lens, smiling serenely as the sunset light catches her face. The view pushes in slowly and smoothly toward her. overall_soundscape: soft wind, distant city hum. non_diegetic_music: N/A"
+  }
+]
