@@ -1,0 +1,8 @@
+[
+ {"id":"t4_phone","first":"t4_phone.png","seconds":8.0,"seed":601,
+  "prompt":"The phone screen stays lit and the whole handset buzzes, shivering a few millimetres across the wood and rotating slightly with each buzz; the coffee surface in the mug trembles. The screen goes dark, then lights again with another buzz. Nothing else in the frame moves. The view shakes slightly with small amplitude at slow speed close over the bench. overall_soundscape: a mobile phone buzzing hard against a wooden bench, a compressor humming behind, a distant impact wrench, workshop room tone. non_diegetic_music: N/A"},
+ {"id":"t5_walk","first":"t5_walk.png","seconds":8.0,"seed":602,
+  "prompt":"He keeps walking away down the workshop, the tablet swinging gently at his side, his head turning back toward the car on the lift and then forward again. His shoulders roll with each step and the fluorescent tubes pass overhead. The view shakes slightly with small amplitude at normal speed and follows him in a tracking shot down the middle of the workshop. overall_soundscape: boots on a concrete floor, a socket wrench clicking, a compressor cycling, faint radio, workshop room tone. non_diegetic_music: N/A"},
+ {"id":"t6_bonnet","first":"t6_bonnet.png","seconds":8.0,"seed":603,
+  "prompt":"He pushes the bonnet down and it drops the last few centimetres and clunks shut; he lifts his hand away, adjusts the tablet under his arm, and glances off to the side with a small closed-mouth smile before looking down at the car. The view shakes slightly with small amplitude at slow speed and drifts a little closer to him. overall_soundscape: a car bonnet clunking shut, fabric rustling, footsteps on concrete, a compressor cycling, faint workshop radio. non_diegetic_music: N/A"}
+]

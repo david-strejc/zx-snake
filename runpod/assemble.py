@@ -37,7 +37,9 @@ HEAD_GHOST = 0.12      # H3 emits a fragment of a never-spoken word at the head 
 # Phone-at-arm's-length is roughly half a camera-operator handheld rig: ~6-8 px RMS at 1080 wide.
 DESLOP = (
     "scale=1134:2016,"
-    "crop=1080:1920:x='27+7*sin(n/31)+4*sin(n/8.3)':y='48+6*sin(n/23)+3*cos(n/11)',"
+    # Half the earlier amplitude: H3 is already prompted to shake slightly, and adding a second
+    # handheld on top of it read as busy rather than human.
+    "crop=1080:1920:x='27+3.5*sin(n/31)+2*sin(n/8.3)':y='48+3*sin(n/23)+1.5*cos(n/11)',"
     "rgbashift=rh=-1:bh=1,"
     "unsharp=5:5:0.35:5:5:0.0,"
     "curves=r='0/0.02 0.5/0.5 1/0.98':g='0/0.02 0.5/0.5 1/0.98':b='0/0.03 0.5/0.5 1/0.97',"

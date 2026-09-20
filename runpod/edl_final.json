@@ -1,0 +1,79 @@
+{
+  "cuts": [
+    {
+      "clip": "a1_tech_selfie",
+      "in": 0.2,
+      "len": 2.31
+    },
+    {
+      "clip": "t1_book",
+      "in": 0.2,
+      "len": 2.31
+    },
+    {
+      "clip": "t4_phone",
+      "in": 0.2,
+      "len": 5.89
+    },
+    {
+      "clip": "t2_search",
+      "in": 0.2,
+      "len": 6.11
+    },
+    {
+      "clip": "a2_tech_after",
+      "in": 0.2,
+      "len": 3.11
+    },
+    {
+      "clip": "t3_tablet",
+      "in": 0.2,
+      "len": 4.39
+    },
+    {
+      "clip": "t5_walk",
+      "in": 0.2,
+      "len": 5.3
+    },
+    {
+      "clip": "t6_bonnet",
+      "in": 0.2,
+      "len": 5.11
+    },
+    {
+      "clip": "a2_tech_after",
+      "in": 3.2,
+      "len": 3.75
+    }
+  ],
+  "narration": [
+    {
+      "file": "line01.mp3",
+      "at": 0.6
+    },
+    {
+      "file": "line02.mp3",
+      "at": 4.29
+    },
+    {
+      "file": "line03.mp3",
+      "at": 9.0
+    },
+    {
+      "file": "line04.mp3",
+      "at": 13.89
+    },
+    {
+      "file": "line05.mp3",
+      "at": 16.38
+    },
+    {
+      "file": "line06.mp3",
+      "at": 19.89
+    },
+    {
+      "file": "line07.mp3",
+      "at": 24.13
+    }
+  ]
+}
