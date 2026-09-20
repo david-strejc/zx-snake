@@ -13,7 +13,7 @@ vo="ref/${id}_vo.wav"
 echo "== $id: $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$src")s"
 echo "== detected cuts (scripted: ${cuts:-none}) =="
 ffmpeg -v info -i "$src" -vf "select='gt(scene,0.30)',showinfo" -an -f null - 2>&1 \
-  | grep -oE "pts_time:[0-9.]+" | sed 's/pts_time://' | awk '{printf "  %.2fs\n",$1}'
+  | { grep -oE "pts_time:[0-9.]+" || true; } | sed 's/pts_time://' | awk '{printf "  %.2fs\n",$1}'
 
 echo "== soundtrack vs reused VO =="
 ffmpeg -v error -y -i "$src" -ac 1 -ar 16000 /tmp/qa_out.wav
