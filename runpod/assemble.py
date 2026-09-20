@@ -27,7 +27,10 @@ WORK = ROOT / "build"
 
 RETIME = 1.25          # 24 fps material -> 30 fps delivery at ~1x real speed
 AUDIO_FADE = 0.10      # diegetic bed crossfade, so the sound seam misses the picture seam
-BED_LEVEL = 0.22       # diegetic bed under the narration
+# Measured: the narration comes back at -15.8 LUFS and H3's own audio at -23.7. At 0.22 the bed
+# would sit near -37 and vanish, which throws away the strongest realism cue we have. Keep it
+# audible between lines and let the ducker pull it down only while someone is speaking.
+BED_LEVEL = 0.55
 HEAD_GHOST = 0.12      # H3 emits a fragment of a never-spoken word at the head of every clip
 
 # Handheld: two non-harmonic sine pairs, ~0.8 Hz drift plus ~3 Hz tremor, inside a 5% overscan.

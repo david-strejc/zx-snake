@@ -2,13 +2,13 @@
   "_note": "in/len are source seconds at 24 fps; output is 1.25x faster. Windows stay inside 0.2-6.9s of each 8s generation: the head carries H3's boundary ghost, the tail is where the model decelerates.",
   "cuts": [
     {"clip": "s01_logbook",      "in": 0.20, "len": 2.10},
-    {"clip": "s03_invoices",     "in": 0.20, "len": 1.90},
+    {"clip": "s03b_invoices",     "in": 0.20, "len": 1.90},
     {"clip": "s02_frustrated",   "in": 0.30, "len": 2.30},
     {"clip": "s01_logbook",      "in": 2.60, "len": 1.90},
-    {"clip": "s03_invoices",     "in": 2.40, "len": 2.00},
+    {"clip": "s03b_invoices",     "in": 2.40, "len": 2.00},
     {"clip": "s04_owner_sceptic","in": 0.30, "len": 2.40},
     {"clip": "s02_frustrated",   "in": 3.00, "len": 2.10},
-    {"clip": "s03_invoices",     "in": 4.60, "len": 1.80},
+    {"clip": "s03b_invoices",     "in": 4.60, "len": 1.80},
     {"clip": "s01_logbook",      "in": 5.00, "len": 2.20},
 
     {"clip": "s05_tablet",       "in": 0.20, "len": 2.50},
