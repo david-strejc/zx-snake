@@ -38,7 +38,15 @@ def sh(args: list[str]) -> str:
 
 
 def ssh(script: str) -> str:
-    return sh(["ssh", *POD, script])
+    """A 30-minute render must not die on one dropped SSH handshake (exit 255)."""
+    for attempt in range(6):
+        try:
+            return sh(["ssh", "-o", "ConnectTimeout=20", *POD, script])
+        except subprocess.CalledProcessError as err:
+            if err.returncode != 255 or attempt == 5:
+                raise
+            time.sleep(10 * (attempt + 1))
+    raise RuntimeError("unreachable")
 
 
 def push(local: Path, remote: str) -> None:
