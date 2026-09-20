@@ -82,11 +82,12 @@ references so identity holds across setups.
 
 | | |
 |---|---|
-| cuts | 19 |
-| mean shot | 1.73 s (target 1.67 s) |
-| duration | ~33 s (band 21–34 s) |
-| narration | 9 lines, 61 words, ~31 s of speech |
-| material generated | 7 × 8 s = 56 s for a ~33 s cut |
+| duration | 34.7 s, 1080×1920, 30 fps |
+| cuts | 20, mean shot **1.74 s** (target 1.67 s) |
+| loudness | **-14.0 LUFS** |
+| narration | 9 Czech lines, 61 words, ~31 s of speech |
+| material generated | 8 × 8 s = 64 s for a 34.7 s cut |
+| queue time for the main 7 | **21.7 min** |
 
 ## Style matrix
 
@@ -94,11 +95,37 @@ Four registers, same model, same finish, generated to test which survives as "re
 
 | register | verdict |
 |---|---|
-| direct-flash night snapshot | |
-| front-facing selfie | |
-| locked-off observational | |
-| "cinematic golden hour" (control) | |
+| direct-flash night snapshot | **best** — blown highlights and a black falloff behind the subject kill every "AI lighting" cue at once |
+| front-facing selfie | **strong** — but it drifted toward a tidier room and milder lens distortion than the keyframe asked for |
+| locked-off observational | **strong** — no camera move means no floaty-motion tell to give away; the cheapest win available |
+| "cinematic golden hour" (control) | **reads as AI instantly**, exactly as designed |
 
-The control is deliberately prompted with every phrase the research flags as slop-inducing —
-`cinematic`, `4K`, `golden hour`, `professional lighting`, `flawless glowing skin`. It already
-announced itself at the still stage, before a frame of video existed.
+The control is prompted with every phrase the research flags as slop-inducing — `cinematic`, `4K`,
+`golden hour`, `professional lighting`, `flawless glowing skin`. **It announced itself at the still
+stage, before a frame of video existed**, which is the finding: the register is chosen in the
+keyframe, not rescued in the video model or in post.
+
+The three that work share one property — **the lighting is bad**. Harsh flash, flat overhead room
+light, fluorescent tubes with a green cast. Good lighting is the tell.
+
+## What went wrong, and what it cost
+
+| defect | cost | fix |
+|---|---|---|
+| `s03` drifted off keyframe and rendered misspelled text ("INVOCE") | 1 generation, ~3 min | re-roll with the frame filled by paper so no document is legible |
+| **imagemaker baked a fake phone camera UI into two keyframes** | 1 generation + a punch-in | assert positively, and *look* at every keyframe — negatives do not suppress it |
+| narration nudging pushed the last line 0.64 s past the picture | one re-assemble | added a 20th closing cut |
+| `s07` drifted — the standing man ends up seated | accepted | keyframe-anchoring constrains composition, not blocking |
+
+## Verdict
+
+**Yes, comfortably inside an hour.** 12 generations (96 s of material) in ~34 min of GPU time,
+producing a finished 34.7 s piece at −14.0 LUFS plus a four-way style matrix, with the remaining
+time going to narration and assembly.
+
+The binding constraint is **not** GPU throughput — it is keyframe quality and directing judgement,
+both of which are cheap and fast. One card is enough for roughly a piece per hour end to end.
+
+**Not validated:** everything here was judged on the master. Delivered TikTok 1080p runs
+0.85–1.7 Mbps HEVC, where the noise floor and fine texture will not survive intact. The honest next
+step is to push one of these through an actual upload and re-measure at phone size.

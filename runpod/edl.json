@@ -1,36 +1,149 @@
 {
   "_note": "in/len are source seconds at 24 fps; output is 1.25x faster. Windows stay inside 0.2-6.9s of each 8s generation: the head carries H3's boundary ghost, the tail is where the model decelerates.",
   "cuts": [
-    {"clip": "s01_logbook",      "in": 0.20, "len": 2.10},
-    {"clip": "s03b_invoices",     "in": 0.20, "len": 1.90},
-    {"clip": "s02_frustrated",   "in": 0.30, "len": 2.30},
-    {"clip": "s01_logbook",      "in": 2.60, "len": 1.90},
-    {"clip": "s03b_invoices",     "in": 2.40, "len": 2.00},
-    {"clip": "s04_owner_sceptic","in": 0.30, "len": 2.40},
-    {"clip": "s02_frustrated",   "in": 3.00, "len": 2.10},
-    {"clip": "s03b_invoices",     "in": 4.60, "len": 1.80},
-    {"clip": "s01_logbook",      "in": 5.00, "len": 2.20},
-
-    {"clip": "s05_tablet",       "in": 0.20, "len": 2.50},
-    {"clip": "s06_warehouse",    "in": 0.20, "len": 2.30},
-    {"clip": "s05_tablet",       "in": 3.00, "len": 2.40},
-    {"clip": "s06_warehouse",    "in": 2.80, "len": 2.20},
-    {"clip": "s04_owner_sceptic","in": 3.20, "len": 2.30},
-    {"clip": "s07_together",     "in": 0.20, "len": 2.60},
-    {"clip": "s05_tablet",       "in": 5.00, "len": 1.90},
-    {"clip": "s06_warehouse",    "in": 5.20, "len": 2.10},
-    {"clip": "s07_together",     "in": 3.20, "len": 2.40},
-    {"clip": "s07_together",     "in": 5.60, "len": 1.80}
+    {
+      "clip": "s01_logbook",
+      "in": 0.2,
+      "len": 2.1
+    },
+    {
+      "clip": "s03b_invoices",
+      "in": 0.2,
+      "len": 1.9,
+      "zoom": 1.28,
+      "x": 0.0
+    },
+    {
+      "clip": "s02_frustrated",
+      "in": 0.3,
+      "len": 2.3
+    },
+    {
+      "clip": "s01_logbook",
+      "in": 2.6,
+      "len": 1.9
+    },
+    {
+      "clip": "s03b_invoices",
+      "in": 2.4,
+      "len": 2.0,
+      "zoom": 1.28,
+      "x": 0.0
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 0.3,
+      "len": 2.4
+    },
+    {
+      "clip": "s02_frustrated",
+      "in": 3.0,
+      "len": 2.1
+    },
+    {
+      "clip": "s03b_invoices",
+      "in": 4.6,
+      "len": 1.8,
+      "zoom": 1.28,
+      "x": 0.0
+    },
+    {
+      "clip": "s01_logbook",
+      "in": 5.0,
+      "len": 2.2
+    },
+    {
+      "clip": "s05_tablet",
+      "in": 0.2,
+      "len": 2.5
+    },
+    {
+      "clip": "s06_warehouse",
+      "in": 0.2,
+      "len": 2.3
+    },
+    {
+      "clip": "s05_tablet",
+      "in": 3.0,
+      "len": 2.4
+    },
+    {
+      "clip": "s06_warehouse",
+      "in": 2.8,
+      "len": 2.2
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 3.2,
+      "len": 2.3
+    },
+    {
+      "clip": "s07_together",
+      "in": 0.2,
+      "len": 2.6
+    },
+    {
+      "clip": "s05_tablet",
+      "in": 5.0,
+      "len": 1.9
+    },
+    {
+      "clip": "s06_warehouse",
+      "in": 5.2,
+      "len": 2.1
+    },
+    {
+      "clip": "s07_together",
+      "in": 3.2,
+      "len": 2.4
+    },
+    {
+      "clip": "s07_together",
+      "in": 5.6,
+      "len": 1.8
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 5.6,
+      "len": 1.5
+    }
   ],
   "narration": [
-    {"file": "line01.mp3", "at": 0.10},
-    {"file": "line02.mp3", "at": 3.20},
-    {"file": "line03.mp3", "at": 7.75},
-    {"file": "line04.mp3", "at": 10.95},
-    {"file": "line05.mp3", "at": 13.85},
-    {"file": "line06.mp3", "at": 16.15},
-    {"file": "line07.mp3", "at": 20.80},
-    {"file": "line08.mp3", "at": 25.40},
-    {"file": "line09.mp3", "at": 28.40}
+    {
+      "file": "line01.mp3",
+      "at": 0.1
+    },
+    {
+      "file": "line02.mp3",
+      "at": 3.2
+    },
+    {
+      "file": "line03.mp3",
+      "at": 7.75
+    },
+    {
+      "file": "line04.mp3",
+      "at": 10.95
+    },
+    {
+      "file": "line05.mp3",
+      "at": 13.85
+    },
+    {
+      "file": "line06.mp3",
+      "at": 16.15
+    },
+    {
+      "file": "line07.mp3",
+      "at": 20.8
+    },
+    {
+      "file": "line08.mp3",
+      "at": 25.4
+    },
+    {
+      "file": "line09.mp3",
+      "at": 28.4
+    }
   ]
 }

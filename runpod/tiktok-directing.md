@@ -76,6 +76,18 @@ exact gloss. Inline negatives on H3 are **advisory**: issue #68 had every line c
 
 ## Keyframes
 
+🔴 **Nano Banana Pro bakes a fake phone camera UI into "phone photo" prompts** — viewfinder
+brackets, a timestamp, a shutter button, a rotate icon. It did it twice here, and **the prompt said
+"no text overlay, no watermark, no borders" both times.** Negative phrasing does not suppress it
+(consistent with the general finding that this model ignores negatives). H3 then reproduces the UI
+faithfully, so the tell survives into the video. Two defences, both needed:
+
+1. Assert positively — *"clean full-bleed photograph filling the entire frame edge to edge"* — and
+   **look at every keyframe before rendering it.** A keyframe is re-injected at every step, so
+   junk in it is junk in all 192 frames.
+2. `assemble.py` takes a per-cut `zoom`/`x` punch-in for cropping past edge junk when a re-render
+   is not worth 3 minutes.
+
 **The landmine (read from the node source):**
 
 ```python

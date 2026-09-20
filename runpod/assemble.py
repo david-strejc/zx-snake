@@ -69,8 +69,15 @@ def cut(n: int, item: dict) -> tuple[Path, Path]:
     start = max(item["in"], HEAD_GHOST)
     video = WORK / f"v{n:02d}.mp4"
     audio = WORK / f"a{n:02d}.wav"
+    # Optional punch-in, used to crop past junk at a frame edge. "x" places the window
+    # horizontally, 0 = hard left, 1 = hard right.
+    reframe = ""
+    if item.get("zoom"):
+        z, x = item["zoom"], item.get("x", 0.5)
+        reframe = (f"crop=iw/{z}:ih/{z}:(iw-iw/{z})*{x}:(ih-ih/{z})/2,"
+                   f"scale=768:1344,")
     run(["ffmpeg", "-y", "-v", "error", "-ss", str(start), "-t", str(item["len"]), "-i", str(source),
-         "-an", "-vf", f"setpts=PTS/{RETIME},fps=30,{DESLOP}",
+         "-an", "-vf", f"{reframe}setpts=PTS/{RETIME},fps=30,{DESLOP}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "18", str(video)])
     run(["ffmpeg", "-y", "-v", "error", "-ss", str(start), "-t", str(item["len"]), "-i", str(source),
          "-vn", "-af", f"atempo={RETIME},aresample=44100", "-ac", "2", str(audio)])

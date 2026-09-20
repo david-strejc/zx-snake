@@ -1,5 +1,6 @@
 .env
 runpod/clips/
+runpod/*.mp4
 runpod/build/
 runpod/vo/
 runpod/vo_trim/
