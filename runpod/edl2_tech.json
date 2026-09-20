@@ -46,9 +46,14 @@
       "len": 2.65
     },
     {
+      "clip": "t3_tablet",
+      "in": 0.2,
+      "len": 5.11
+    },
+    {
       "clip": "a2_tech_after",
       "in": 0.2,
-      "len": 6.75
+      "len": 5.11
     }
   ],
   "narration": [

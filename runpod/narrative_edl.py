@@ -21,7 +21,7 @@ ROOT = Path(__file__).parent
 RETIME = 1.25
 GAP = 1.0        # breath between lines; testimonial, not a music video
 LEAD = 0.35      # picture changes this long before its line starts
-TAIL = 1.5       # how long the last shot holds after the last word
+TAIL = 3.6       # how long the closing shots hold under the brand line
 WINDOWS = (0.20, 2.40, 4.20)   # usable in-points inside an 8 s generation
 LIMIT = 6.95     # never read past here: the model decelerates over the last ~10-15%
 
@@ -34,7 +34,7 @@ PIECES = {
         ["a2_tech_after"],
         ["t3_tablet"],
         ["t3_tablet", "a2_tech_after"],
-        ["a2_tech_after"],
+        ["t3_tablet", "a2_tech_after"],
     ],
     "owner": [
         ["b1_owner_selfie"],
@@ -43,7 +43,7 @@ PIECES = {
         ["b2_owner_after"],
         ["o2_dash", "o3_door"],
         ["o3_door", "b2_owner_after"],
-        ["b2_owner_after"],
+        ["o2_dash", "b2_owner_after"],
     ],
     "acc": [
         ["c1_acc_selfie"],
@@ -52,7 +52,7 @@ PIECES = {
         ["c2_acc_after"],
         ["k2_screen"],
         ["k3_clear"],
-        ["c2_acc_after"],
+        ["k3_clear", "c2_acc_after"],
     ],
 }
 

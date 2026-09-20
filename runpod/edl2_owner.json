@@ -46,9 +46,14 @@
       "len": 2.55
     },
     {
+      "clip": "o2_dash",
+      "in": 0.2,
+      "len": 5.03
+    },
+    {
       "clip": "b2_owner_after",
       "in": 0.2,
-      "len": 6.75
+      "len": 5.03
     }
   ],
   "narration": [

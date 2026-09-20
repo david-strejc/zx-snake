@@ -41,9 +41,14 @@
       "len": 3.76
     },
     {
+      "clip": "k3_clear",
+      "in": 2.4,
+      "len": 4.38
+    },
+    {
       "clip": "c2_acc_after",
-      "in": 0.2,
-      "len": 6.13
+      "in": 2.4,
+      "len": 4.38
     }
   ],
   "narration": [
