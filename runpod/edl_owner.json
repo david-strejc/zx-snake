@@ -1,0 +1,118 @@
+{
+  "cuts": [
+    {
+      "clip": "b1_owner_selfie",
+      "in": 0.2,
+      "len": 1.93
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 0.2,
+      "len": 1.93
+    },
+    {
+      "clip": "b1_owner_selfie",
+      "in": 2.4,
+      "len": 2.04
+    },
+    {
+      "clip": "s03b_invoices",
+      "in": 0.2,
+      "len": 2.04,
+      "zoom": 1.28,
+      "x": 0.0
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 2.4,
+      "len": 2.16
+    },
+    {
+      "clip": "b1_owner_selfie",
+      "in": 4.2,
+      "len": 2.27
+    },
+    {
+      "clip": "s03b_invoices",
+      "in": 4.2,
+      "len": 2.27,
+      "zoom": 1.28,
+      "x": 0.0
+    },
+    {
+      "clip": "s01_logbook",
+      "in": 0.2,
+      "len": 2.38
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 0.2,
+      "len": 2.38
+    },
+    {
+      "clip": "s07_together",
+      "in": 0.2,
+      "len": 2.5
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 2.4,
+      "len": 2.5
+    },
+    {
+      "clip": "s05_tablet",
+      "in": 2.4,
+      "len": 2.61
+    },
+    {
+      "clip": "s07_together",
+      "in": 2.4,
+      "len": 2.61
+    },
+    {
+      "clip": "b2_owner_after",
+      "in": 4.2,
+      "len": 2.72
+    },
+    {
+      "clip": "s04_owner_sceptic",
+      "in": 4.2,
+      "len": 2.75
+    },
+    {
+      "clip": "s07_together",
+      "in": 4.2,
+      "len": 2.75
+    }
+  ],
+  "narration": [
+    {
+      "file": "line01.mp3",
+      "at": 0.2
+    },
+    {
+      "file": "line02.mp3",
+      "at": 3.6
+    },
+    {
+      "file": "line03.mp3",
+      "at": 7.8
+    },
+    {
+      "file": "line04.mp3",
+      "at": 12.2
+    },
+    {
+      "file": "line05.mp3",
+      "at": 15.0
+    },
+    {
+      "file": "line06.mp3",
+      "at": 18.6
+    },
+    {
+      "file": "line07.mp3",
+      "at": 25.0
+    }
+  ]
+}

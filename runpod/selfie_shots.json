@@ -1,0 +1,51 @@
+[
+  {
+    "id": "a1_tech_selfie",
+    "first": "a1_tech_selfie.png",
+    "seconds": 8.0,
+    "seed": 401,
+    "prompt": "He keeps the phone out at arm's length, his lips stay completely closed and he does not speak. He shrugs once, blinks, glances off to the side at the workshop behind him and back to the lens, then huffs a short breath out through his nose and raises his eyebrows. The holding arm sags a little and he corrects it. The view shakes slightly with small amplitude at normal speed with the drift of an outstretched arm. overall_soundscape: workshop ambience, a compressor cycling, an impact wrench two bays away, a short breath out close to the microphone, phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "a2_tech_after",
+    "first": "a2_tech_after.png",
+    "seconds": 8.0,
+    "seed": 402,
+    "prompt": "He holds the tablet up beside his face, lips completely closed, not speaking. He tips the tablet slightly toward the lens, nods once, blinks, and the corner of his mouth lifts; then he lowers the tablet a little and shifts his weight onto his other foot. The view shakes slightly with small amplitude at normal speed with the drift of an outstretched arm. overall_soundscape: workshop ambience, a distant radio, a fingertip tapping a hard tablet screen, phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "b1_owner_selfie",
+    "first": "b1_owner_selfie.png",
+    "seconds": 8.0,
+    "seed": 403,
+    "prompt": "He sits in the driver's seat holding the phone at arm's length, lips completely closed, not speaking. He tilts his head, blinks twice, glances down and away as if thinking, then looks back to the lens and lets out a slow breath, his shoulders dropping. Daylight through the windscreen shifts faintly as a cloud passes. The view shakes slightly with small amplitude at slow speed. overall_soundscape: quiet car interior, a slow breath out, muffled parking-lot noise through glass, occasional distant traffic, fabric rustle against the seat. non_diegetic_music: N/A"
+  },
+  {
+    "id": "b2_owner_after",
+    "first": "b2_owner_after.png",
+    "seconds": 8.0,
+    "seed": 404,
+    "prompt": "He holds his phone screen up beside his face toward the lens, lips completely closed, not speaking. He turns the screen a few degrees as if letting the lens see it better, raises his eyebrows, nods once and breaks into a short closed-mouth smile, then lowers the phone slightly. The view shakes slightly with small amplitude at slow speed. overall_soundscape: quiet car interior, a short amused breath, muffled traffic through glass, phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "c1_acc_selfie",
+    "first": "c1_acc_selfie.png",
+    "seconds": 8.0,
+    "seed": 405,
+    "prompt": "She holds the phone at arm's length at her desk, lips completely closed, not speaking. She rolls her eyes slowly upward and back, tips her head toward the paper stacks behind her, blinks, then gives a small resigned closed-mouth smile and lifts one shoulder. A loose strand of hair moves by her cheek. The view shakes slightly with small amplitude at normal speed with the drift of an outstretched arm. overall_soundscape: quiet office ambience, a printer running in the corner, a keyboard clattering somewhere off to the side, a short breath out, phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "c2_acc_after",
+    "first": "c2_acc_after.png",
+    "seconds": 8.0,
+    "seed": 406,
+    "prompt": "She holds the phone at arm's length at her now-clear desk, lips completely closed, not speaking. She lifts one shoulder in a small pleased shrug, blinks, glances back over her shoulder at the empty desk behind her and returns to the lens with a closed-mouth smile, tucking the loose strand of hair behind her ear. The view shakes slightly with small amplitude at normal speed. overall_soundscape: quiet office ambience, a chair creaking, a printer idling, a short breath, phone handling rustle. non_diegetic_music: N/A"
+  },
+  {
+    "id": "c3_acc_desk",
+    "first": "c3_acc_desk.png",
+    "seconds": 8.0,
+    "seed": 407,
+    "prompt": "The fingers on the keyboard start typing in short bursts, pausing and starting again; the other hand slides the thin stack of invoices a few centimetres and taps the top sheet twice with a fingertip, then lifts away out of frame and comes back. The monitor glow behind shifts slightly. Focus stays on the hands and the desk stays soft behind them. The view shakes slightly with small amplitude at slow speed close over the desk. overall_soundscape: keyboard keys clattering in bursts, paper tapping and sliding on a desk, a printer running, quiet office room tone. non_diegetic_music: N/A"
+  }
+]
