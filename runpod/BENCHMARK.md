@@ -164,3 +164,14 @@ raise memory at no cognitive cost, a scene change is ~3× more visible); last sh
 face with no cut in the final 3 s; 8–11 shots per 30 s, mean 3.0–3.5 s. Pieces built to this are
 in `piece_tech.json` and rendered by `ref2va_piece.py`; each segment passes `qa_segment.sh`
 (actual cut times, VO correlation, frame strip at every cut) before assembly.
+
+**Audio-reuse failure mode, measured:** segment 1 (25 steps, `beta`) copied line 1 and then
+*dropped line 2 entirely* — silence from 4.0–5.75 s with energy bursts at the two cut points,
+where the prompt's soundscape put "a mobile phone buzzing on wood". Segment 2 with identical
+settings copied its three lines at NCC 0.933 / envelope 0.997. So the scheduler is not the cause;
+a loud diegetic sound scripted *at* a cut can displace the reused narration there. Fixes applied
+on the re-roll: the official guide's cross-cut phrasing ("remains audible across every
+transition", "continues uninterrupted") in `subject_definitions`, `retention_analysis` and each
+`[Shot N]`, and the competing sound softened ("vibrates quietly"). `qa_segment.sh` now flags any
+0.5 s bin where the VO has energy and the output has none, because zero-lag NCC alone (0.53)
+under-reported a wholly missing sentence.
