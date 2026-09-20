@@ -1,5 +1,6 @@
 .env
-.memories/
-tasks.md
-*.log
-.claude/
+runpod/clips/
+runpod/build/
+runpod/vo/
+runpod/vo_trim/
+runpod/keyframes/

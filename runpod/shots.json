@@ -1,0 +1,51 @@
+[
+  {
+    "id": "s01_logbook",
+    "first": "s01_logbook.png",
+    "seconds": 8.0,
+    "seed": 101,
+    "prompt": "The greasy thumb pins the page down and the other hand flips it over; two more dog-eared pages turn, the paper bending and springing back, dust lifting off the desk. The old mobile phone keeps lighting up and buzzing against the wood, edging a few millimetres sideways with each buzz. A pen rolls a short distance and stops. The view shakes slightly with small amplitude at slow speed and drifts a little closer to the open page. overall_soundscape: paper pages turning and scraping, a mobile phone buzzing hard against a wooden desk, a compressor humming somewhere behind, a distant impact wrench. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s02_frustrated",
+    "first": "s02_frustrated.png",
+    "seconds": 8.0,
+    "seed": 102,
+    "prompt": "He drags his hand down from his forehead across his face, exhales hard through his nose, and his shoulders drop. He looks down at the stack of paperwork, blinks twice, then shakes his head once and pushes the top sheet aside with two fingers. His jaw tightens. The view shakes slightly with small amplitude at slow speed, holding him a little off-centre. overall_soundscape: a long tired exhale, paper sliding on paper, a workshop compressor cycling on, faint radio from another room. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s03_invoices",
+    "first": "s03_invoices.png",
+    "seconds": 8.0,
+    "seed": 103,
+    "prompt": "The hand slaps another sheet down onto the pile and the whole stack shifts and fans out; the top corner curls up and settles. A second sheet lands, then a third, each one pushing the pile further out of square until a few sheets slide off the edge. The view shakes slightly with small amplitude at normal speed and tilts down a little with the falling paper. overall_soundscape: sharp paper slaps on a wooden desk, sheets sliding and rustling, one sheet fluttering to the floor, a compressor humming. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s04_owner_sceptic",
+    "first": "s04_owner_sceptic.png",
+    "seconds": 8.0,
+    "seed": 104,
+    "prompt": "He unfolds his crossed arms, leans forward toward the laptop and rests one forearm on the desk, eyes narrowing as he reads. He scratches the side of his jaw once, swallows, then sits back again and lets out a breath, his expression softening from sceptical to thoughtful. Light from the blinds shifts faintly across the wall behind him. The view shakes slightly with small amplitude at slow speed. overall_soundscape: an office chair creaking, a quiet breath out, a printer warming up in the corner, muffled traffic through a window. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s05_tablet",
+    "first": "s05_tablet.png",
+    "seconds": 8.0,
+    "seed": 105,
+    "prompt": "He tilts the rugged tablet toward himself, taps the screen twice with his thumb, and the screen light shifts across his face. He glances up off to the side at the car on the lift, then back down, and the corner of his mouth lifts. He shifts his weight onto his other foot. The view shakes slightly with small amplitude at slow speed and trucks a short distance to the left around him. overall_soundscape: a fingertip tapping a hard tablet screen, a short confirmation beep, an impact wrench two bays away, workshop radio. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s06_warehouse",
+    "first": "s06_warehouse.png",
+    "seconds": 8.0,
+    "seed": 106,
+    "prompt": "The hand holding the tablet raises it toward the shelf label, a scanner light flicks across the label, and the hand lowers again. The other hand pulls the cardboard box forward off the shelf, the box tipping slightly and being caught. He steps sideways and the shelving slides past behind him. The view shakes slightly with small amplitude at normal speed and trucks with him down the aisle. overall_soundscape: a scanner beep, cardboard dragging on a metal shelf, footsteps on a concrete floor, the hum of warehouse strip lighting. non_diegetic_music: N/A"
+  },
+  {
+    "id": "s07_together",
+    "first": "s07_together.png",
+    "seconds": 8.0,
+    "seed": 107,
+    "prompt": "The older man taps the laptop screen twice with his finger and turns his head toward the younger man, breaking into a short laugh; the younger man nods, looks down at the screen and then back up, smiling and rubbing the back of his neck. Both shift their weight. The older man claps the younger one once on the shoulder. The view shakes slightly with small amplitude at slow speed and pushes in a little toward the two of them. overall_soundscape: two men talking quietly with a short laugh, a fingertip tapping a laptop screen, an office chair rolling, a printer running. non_diegetic_music: N/A"
+  }
+]
