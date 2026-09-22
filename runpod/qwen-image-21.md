@@ -30,3 +30,17 @@ ComfyUI **0.37.0** (native `TextEncodeQwenImage21`; 0.36.0 predates it). `Comfy-
 
 VRAM with both precisions resident: 43.8 GB. int8 and bf16 are visually near-identical at the same
 seed -> **use int8** (25% faster at 2K, half the VRAM). Czech diacritics in signage render correctly.
+
+## Parallel generation: no gain on one card (measured)
+| | 1024x1024 | 1536x2752 (9:16 2K) |
+|---|---|---|
+| single job | 3.62 s/img | 21.4 s/img |
+| batch 2 / 4 / 8 (one job) | 3.65 / 3.67 / 3.70 s/img | 21.9 / 21.7 s/img |
+| 2 ComfyUI instances, different jobs at once | 3.96 s/img | 22.5 s/img |
+
+One image already saturates the GPU, so batching is exactly linear and concurrent instances are
+slightly *slower* (they time-share and pay the switching). Same result as H3. Parallelism scales
+with GPUs, not processes: a multi-GPU pod with one ComfyUI per GPU (`CUDA_VISIBLE_DEVICES`) is the
+only real N x. One card = ~1,000 images/h at 1K or ~170/h at 9:16 2K (int8, 25 steps).
+Trap met: ComfyUI caches identical graph+seed, so a repeated benchmark job returns in 0.3 s - vary
+the seed per run or the numbers are fiction (`qi_par.py`).
