@@ -44,3 +44,22 @@ with GPUs, not processes: a multi-GPU pod with one ComfyUI per GPU (`CUDA_VISIBL
 only real N x. One card = ~1,000 images/h at 1K or ~170/h at 9:16 2K (int8, 25 steps).
 Trap met: ComfyUI caches identical graph+seed, so a repeated benchmark job returns in 0.3 s - vary
 the seed per run or the numbers are fiction (`qi_par.py`).
+
+## GPU comparison and 4-GPU scaling (measured 2026-09-22, int8, 25 steps, warm)
+| card | 1024x1024 | 1536x2752 (9:16 2K) |
+|---|---|---|
+| RTX PRO 6000 Blackwell (96 GB) | 3.62 s | 21.1 s |
+| RTX PRO 4500 Blackwell (32 GB) | 8.66 s | 49.9 s |
+| RTX 4090 (24 GB) | 12.15 s | 92.6 s |
+| **4x RTX PRO 4500, one ComfyUI per GPU** | **2.06 s effective (1,749 img/h)** | **13.0 s effective (277 img/h)** |
+
+- **Multi-GPU scales linearly** (4 cards = 4.2x at 1K, 3.8x at 2K). Multiple instances on ONE card
+  do not (see above); one instance per card via `CUDA_VISIBLE_DEVICES` does. `quad_start.sh`.
+- **GeForce loses on this model far more than its compute suggests.** The 4090 is 3.4x slower than the
+  PRO 6000: GeForce runs FP16-with-FP32-accumulate at half rate, and the `int8_convrot` weights have no
+  fast path on Ada (bf16 on the 4090 was slower still, 27 s at 1K). Prefer RTX PRO Blackwell cards.
+  `--highvram --disable-dynamic-vram` changed nothing (12.15 s), so it is compute, not weight streaming.
+- **Best price/performance measured: RTX PRO 4500 Blackwell**, on both community and secure cloud.
+- Traps met: a 30 GB pod volume cannot fetch a 14 GB file (xet reconstructs a full temp copy next to
+  it - needs ~2x free); a community 3090 host spent 17+ min in `pip` on a slow network - abandon slow
+  hosts early; `pkill -f main.py` inside `ssh '...'` kills the SSH shell itself - run it from a script.
